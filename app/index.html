@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>player</title>
+    <link rel="stylesheet" href="css/style.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="player">
+          <div class="title">Сейчас воспроизводится</div>
+          <div class="cover">
+            <ul class="list"></ul>
+          </div>
+          <div class="song-info">
+            <div class="song-name">
+              Название песни
+            </div>
+            <span class="song-duration"></span>
+            <span class="song-current-time"></span>
+            <span class="time-left"></span>
+          </div>
+          <audio src="" class="audio"></audio>
+          <div class="progress-container">
+            <div class="progress"></div>
+          </div>
+          <div class="btn-container">
+            <button class="btn prev"><img src="img/rewind-left.svg" alt="btn"></button>
+            <button class="btn play"><img class="img__src" src="img/play.svg" alt="btn"></button>
+            <button class="btn next"><img src="img/rewind-right.svg" alt="btn"></button>
+          </div>
+        </div>
+      </div>
+      <div class="input-wrapper">
+        <div class="massage"></div>
+        <input type="text" class="check-song">
+        <button class="input-btn">
+          Жмяк
+        </button>
+      </div>
+    </div>
+
+
+    <script src="js/main.min.js"></script>
+  </body>
+</html>
