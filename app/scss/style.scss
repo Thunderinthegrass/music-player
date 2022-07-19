@@ -35,6 +35,7 @@
   width: 310px;
   height: 310px;
   overflow: auto;
+  background: rgb(247, 209, 209);
 }
 .song-info{
   position: relative;
@@ -126,5 +127,9 @@
 }
 .active{
   background: rgb(235, 115, 115);
+}
+.volume{
+  position: absolute;
+  top: 63%;
 }
 

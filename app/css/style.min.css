@@ -219,6 +219,7 @@ section {
   width: 310px;
   height: 310px;
   overflow: auto;
+  background: rgb(247, 209, 209);
 }
 
 .song-info {
@@ -339,6 +340,11 @@ section {
 
 .active {
   background: rgb(235, 115, 115);
+}
+
+.volume {
+  position: absolute;
+  top: 63%;
 }
 @supports (-webkit-appearance:none){
 

@@ -13,6 +13,8 @@ let songDuration = document.querySelector(".song-duration");
 let songCurrentTime = document.querySelector(".song-current-time");
 let timeLeft = document.querySelector(".time-left");
 
+const songsRandom = [];
+
 const songs = [
   "Луч - Алые сердца",
   "Луч - Апрель",
@@ -176,6 +178,19 @@ function checkSongs() {
         console.log(elem);
       }
     });
+    console.log(songsRandom)
   });
 }
 checkSongs();
+
+// volume=========================
+function volumeAudio() {
+  let volumeRange = document.querySelector('.volume');
+
+  volumeRange.addEventListener('change', () => {
+    audio.volume = volumeRange.value;
+    console.log(audio.volume)
+    console.log(volumeRange.value)
+  })
+}
+volumeAudio();
