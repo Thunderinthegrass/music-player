@@ -48,7 +48,7 @@ function scripts() {
   return src([
     // 'node_modules/jquery/dist/jquery.js',
     'app/js/main.js',
-    'app/js/list.js'
+    'app/js/list.js',
   ])
     .pipe(concat('main.min.js'))
     // .pipe(uglify())

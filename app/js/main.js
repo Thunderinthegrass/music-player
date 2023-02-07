@@ -10,36 +10,37 @@ const coverImg = document.querySelector(".cover__img");
 const imgSrc = document.querySelector(".img__src");
 const songName = document.querySelector(".song-name");
 let songDuration = document.querySelector(".song-duration");
-let songCurrentTime = document.querySelector(".song-current-time");
 let timeLeft = document.querySelector(".time-left");
 
 const songsRandom = [];
 
-const songs = [
-  "Луч - Алые сердца",
-  "Луч - Апрель",
-  "Луч - Излучение",
-  "Луч - Каникулы",
-  "Луч - Летние грозы",
-  "Луч - Лыжня",
-  "Луч - Ночной старт",
-  "Луч - Отблески зари",
-  "Луч - Первый снег",
-  "Луч - Рассвет",
-  "Луч - Романтика",
-  "Луч - Символ",
-  "Луч - Спутник",
-  "Луч - Свидание",
-  "Луч - Туманность Андромеды",
-  "Луч - Юность",
-  "Луч - В кольцах Сатурна",
-  "Луч - Восток-1",
-  "Луч - Вьюга",
-  "Луч - Взморье",
+let songs = [
+  "Внутрия - одинокая звезда.mp3",
+  "Луч - Алые сердца.mp3",
+  "Луч - Апрель.mp3",
+  "Луч - В кольцах Сатурна.mp3",
+  "Луч - Взморье.mp3",
+  "Луч - Восток-1.mp3",
+  "Луч - Вьюга.mp3",
+  "Луч - Излучение.mp3",
+  "Луч - Каникулы.mp3",
+  "Луч - Летние грозы.mp3",
+  "Луч - Лыжня.mp3",
+  "Луч - Ночной старт.mp3",
+  "Луч - Отблески зари.mp3",
+  "Луч - Первый снег.mp3",
+  "Луч - Рассвет.mp3",
+  "Луч - Романтика.mp3",
+  "Луч - Свидание.mp3",
+  "Луч - Символ.mp3",
+  "Луч - Спутник.mp3",
+  "Луч - Туманность андромеды .mp3",
+  "Луч - Юность.mp3",
 ];
 
 let randomSongs = Math.floor(Math.random() * songs.length);
 let songIndex = songs[randomSongs];
+console.log(`randomSongs${randomSongs}`)
 
 let defSong = 0; //отвечает за начальный выбор песни
 onSong = 0;
@@ -51,12 +52,14 @@ onSong = 0;
 
 function defaultSong() {
   //первая песня - первая в списке
-  audio.setAttribute("src", `audio/${songs[defSong]}.mp3`);
+  audio.setAttribute("src", `audio/${songs[defSong]}`);
   onSong = 1;
 }
 
 //полоса прогресса
 function updateProgress(e) {
+  let songCurrentTime = document.querySelector(".song-current-time");
+
   setTimeout(() => {
     songCurrentTime.innerHTML = `${Math.floor(audio.currentTime / 60)}:${
       Math.floor(audio.currentTime) % 60
@@ -98,7 +101,8 @@ function playStart() {
   onPlay = 1;
   audio.play();
   imgSrc.setAttribute("src", `img/stop.svg`);
-  audio.addEventListener("ended", next);
+  // audio.addEventListener("ended", next);
+
   if (defSong < 9 && defSong != 0) {
     songName.innerHTML = `0${defSong + 1} ${songs[defSong]}`;
   } else if (defSong == 0) {
@@ -169,28 +173,30 @@ function checkSongs() {
     let massage = document.querySelector(".massage");
     let value = checkSong.value;
     value = value.toLowerCase();
-
-    console.log(value);
+    let check = 0;
 
     songs.forEach((elem, id) => {
-      if (elem.toLowerCase() == value) {
+      if (elem.toLowerCase() == value.toLowerCase()) {
         massage.innerHTML = `такая песня уже есть под номером ${id + 1}`;
-        console.log(elem);
+        check = 1;
+      }
+      if (check == 0) {
+        massage.innerHTML = `такой песни еще нет в списке`;
       }
     });
-    console.log(songsRandom)
+    console.log(songsRandom);
   });
 }
 checkSongs();
 
 // volume=========================
 function volumeAudio() {
-  let volumeRange = document.querySelector('.volume');
+  let volumeRange = document.querySelector(".volume");
 
-  volumeRange.addEventListener('change', () => {
+  volumeRange.addEventListener("change", () => {
     audio.volume = volumeRange.value;
-    console.log(audio.volume)
-    console.log(volumeRange.value)
-  })
+    console.log(audio.volume);
+    console.log(volumeRange.value);
+  });
 }
 volumeAudio();

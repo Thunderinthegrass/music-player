@@ -3,17 +3,17 @@ function playlist() {
   // let listItem;
 
   function createListElem() {
-    for (let i = 0; i < songs.length; i++) {
-      let listItem = document.createElement("li");
-      listItem.classList.add("list-item");
-      list.appendChild(listItem);
+    for (let i = 0; i < songs.length; i++) {//запускается цикл добавления элементов в список
+      let listItem = document.createElement("li");//создается элемент li
+      listItem.classList.add("list-item");//элементу li добавляется класс
+      list.appendChild(listItem);//'элемент li добавляется в список
 
-      let count = i + 1;
+      let count = i + 1;//номер песни
       if (count < 10) {
         count = '0' + count;
       }
 
-      listItem.innerHTML = `${count} ${songs[i]}`;
+      listItem.innerHTML = `${count} ${songs[i]}`;//внутрь li добавляется номер и название песни
     }
   }
   createListElem();
@@ -33,7 +33,7 @@ function playlist() {
       }
 
       function currentSong() {//выделяет и проигрывает строку по нажатию на строку в плейлисте
-        audio.setAttribute("src", `audio/${songs[id]}.mp3`);//замена номера песни
+        audio.setAttribute("src", `audio/${songs[id]}`);//замена номера песни
         elem.classList.add("active");
         console.log(elem)
         audio.play();
